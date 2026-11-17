@@ -38,6 +38,7 @@ const server = http.createServer((req, res) => {
 });
 const wss = new WebSocketServer({ server, maxPayload: 256 * 1024 });
 wss.on('connection', ws => {
+  console.log('WEBSOCKET CLIENT CONNECTED');
   clients.set(ws, { role: null, code: null, id: null });
   ws.on('message', raw => {
     let m;
